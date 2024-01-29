@@ -1,0 +1,63 @@
+
+<%- include('../../partials/dash/head') %>
+<body data-background-color="dark">
+    <div id="app">
+        <%- include('../../partials/dash/payptawk') %>
+        <div class="wrapper">
+        <%- include('../../partials/dash/mainheader') %>
+    
+            <!-- Stored in resources/views/child.blade.php -->
+            <!-- SIDE BAR -->
+            <%- include('../../partials/dash/sidebar') %>
+            <!-- END SIDE BAR -->
+
+<!-- VERIFY MODAL -->  
+<%- include('../../partials/dash/verifymodal') %>      
+<!-- END VERIFY MODAL -->          
+
+<div class="main-panel bg-dark">
+<div class="content bg-dark">
+<div class="page-inner">
+<div class="mt-2 mb-4">
+<h1 class="title1 text-light">Make Payment</h1>
+</div>
+				<div class="row">
+<div class="col card bg-dark shadow-lg p-4">
+			<div class="mb-3 text-light">
+<h4>You are to make payment of <strong>&#36;100</strong> using your preferred mode of payment below.</h4>
+				</div>
+
+<form method="POST" action="/user/deposit" enctype="multipart/form-data">
+<h5 class="text-light">Enter Transaction Hash</h5>
+<input type="text" name="hash" class="form-control col-lg-4 bg-dark text-light" required>
+<br>
+
+
+<br> <br>
+<div >
+<input type="submit" class="btn btn-light" value="Submit payment">
+</div> 
+<input type="hidden" name="id" value="218">
+<input type="hidden" name="pay_type" value="">
+<input type="hidden" name="plan_id" value="">
+<input type="hidden" name="proof" value="qWxoD6zsahBPWcM5rXtPubyV9sWJhVuql4bMvR0W">
+</form>
+</div>
+		</div>
+</div>
+
+</div>
+</div>
+                <!-- FOOTER -->
+                <%- include('../../partials/dash/footer') %>
+                <!-- END FOOTER -->
+</div>
+</div>
+</div>
+
+<!--   Core JS Files   -->
+<%- include('../../partials/dash/corejsfiles') %>	 
+
+</body>
+</html>
+

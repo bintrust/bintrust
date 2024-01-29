@@ -1,0 +1,68 @@
+<header class="header">
+  <div class="container row">
+    <ul class="topheader">
+      <li class="logo">
+        <div class="bodycontainer">
+          <button class="btn round default right menu">
+            <i class="fa fa-align-right"></i>
+          </button>
+          <a href="/">
+            <!-- <img src="/assets/images/Untitled-4best.png" title="coinstarmining  || Sparkup Your Coin" /> -->
+            <span style="font-size: 20px; text-transform: uppercase;">
+              bina</span
+            >
+            <span style="font-size: 10px;">trust</span>
+          </a>
+        </div>
+      </li>
+      <li class="data">
+        <div class="bodycontainer">
+          <ul>
+            <li>
+              <div>3,649,450 USD</div>
+              Payouts
+            </li>
+            <li>
+              <div>+5.26%</div>
+              24 hour price
+            </li>
+            <li>
+              <div>12.820 BTC</div>
+              24 hour volume
+            </li>
+            <li>
+              <div>69,775</div>
+              active traders
+            </li>
+            <li>
+              <div class="btcwdgt-price" bw-cur="usd"></div>
+              Live Bitcoin price
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="account row">
+        <div class="bodycontainer">
+          <% if((user && user.fname)) { %>
+          <div class="button_container">
+            <a href="/user/dashboard" class="btn"
+              ><i class="fa fa-user"></i> <%= user.fname %>
+            </a>
+          </div>
+          <%} else {%>
+          <div class="button_container">
+            <a href="/user/login" class="btn"
+              ><i class="fa fa-user"></i> SIGN IN</a
+            >
+          </div>
+          <div class="button_container">
+            <a href="/user/register" class="btn v2"
+              ><i class="fa fa-user-plus"></i> REGISTER</a
+            >
+          </div>
+          <%}%>
+        </div>
+      </li>
+    </ul>
+  </div>
+</header>

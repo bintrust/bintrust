@@ -1,0 +1,159 @@
+
+<% let bankName = user.withdrawal_info.bank.bank_name %>
+<% let accountName = user.withdrawal_info.bank.account_name %>
+<% let accountNumber = user.withdrawal_info.bank.account_number %>
+<% let routingNumber = user.withdrawal_info.bank.routing_number %>
+<% let btcAddress = user.withdrawal_info.crypto.btc_address %>
+<% let cashAppTag = user.withdrawal_info.cash_app.cash_app_tag %>
+
+<%- include('../../partials/dash/head') %>
+<body data-background-color="dark">
+    <div id="app">
+        <%- include('../../partials/dash/payptawk') %>
+        <div class="wrapper">
+        <%- include('../../partials/dash/mainheader') %>
+    
+            <!-- Stored in resources/views/child.blade.php -->
+            <!-- SIDE BAR -->
+            <%- include('../../partials/dash/sidebar') %>
+            <!-- END SIDE BAR -->
+
+<!-- VERIFY MODAL -->  
+<%- include('../../partials/dash/verifymodal') %>      
+<!-- END VERIFY MODAL -->        
+
+<div class="main-panel bg-dark">
+<div class="content bg-dark">
+<div class="page-inner">
+<div class="mt-2 mb-4">
+<h1 class="text-light">Add your withdrawal info</h1>
+</div>
+
+    <div class="row mb-4">
+<div class="col card p-3 shadow-lg bg-dark">
+<div class="accordion accordion-light ">
+<form method="post" id="walletform" action="/user/dashboard/accountdetails/update">
+<!--............................... collapse one -->
+<div class="card">
+<div class="card-header bg-dark" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+    <div class="span-icon">
+        <div class="fa fa-clone"></div>
+    </div>
+    <div class="span-title text-light">
+        Bank transfer
+    </div>
+    <div class="span-mode"></div>
+</div>
+<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+    <div class="card-body bg-dark shadow">
+        <div class="form-group">
+            <h5 class="text-light">Bank Name</h5>
+            <input type="text" name="bank_name" value="<%= bankName %>"  class="form-control text-light bg-dark" placeholder="Enter bank name">
+        </div>
+        <div class="form-group">
+            <h5 class="text-light">Account Name</h5>
+            <input type="text" name="actname" value="<%= accountName %>"  class="form-control  text-light bg-dark" placeholder="Enter Account name">
+        </div>
+        <div class="form-group">
+            <h5 class="text-light">Account Number</h5>
+            <input type="text" name="actnum" value="<%= accountNumber %>"  class="form-control text-light bg-dark" placeholder="Enter Account Number">
+        </div>
+         <div class="form-group">
+            <h5 class="text-light">Routing Number</h5>
+            <input type="text" name="routnum" value="<%= routingNumber %>"  class="form-control text-light bg-dark" placeholder="Enter Routing Number">
+        </div>
+    </div>
+</div>
+</div>
+<!--............................... collapse two -->
+<div class="card">
+<div class="card-header bg-dark" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+    <div class="span-icon">
+        <div class="fa fa-clone"></div>
+    </div>
+    <div class="span-title text-light">
+        BItcoin
+    </div>
+    <div class="span-mode"></div>
+</div>
+<div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+    <div class="card-body bg-dark shadow">
+        <div class="form-group">
+            <h5 class="text-light">BTC ADDRESS</h5>
+            <input type="text" name="btc_address" value="<%= btcAddress %>"  class="form-control text-light bg-dark" >
+        </div>
+    </div>
+</div>
+</div>
+<!--............................... collapse three -->
+
+<!--............................... collapse four -->
+<div class="card">
+<div class="card-header bg-dark" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+    <div class="span-icon">
+        <div class="fa fa-clone"></div>
+    </div>
+    <div class="span-title text-light">
+        Cash App
+    </div>
+    <div class="span-mode"></div>
+</div>
+<div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
+    <div class="card-body bg-dark shadow">
+        <div class="form-group">
+            <h5 class="text-light bg-dark">Cash App Tag </h5>
+            <input type="text" name="cash_app_tag" value="<%= cashAppTag %>"  class="form-control text-light bg-dark" >
+        </div>
+    </div>
+</div>
+</div>
+
+<!--......................... end of collaps four -->
+<input type="submit" class="btn btn-primary" value="Submit">  &nbsp; &nbsp; 
+<div class="resp"></div>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+                <!-- FOOTER -->
+                <%- include('../../partials/dash/footer') %>
+                <!-- END FOOTER -->
+</div>
+</div>
+</div>
+
+<!--   Core JS Files   -->
+<%- include('../../partials/dash/corejsfiles') %>
+
+<script>
+$('#walletform').submit(function( event ){
+		   event.preventDefault();
+		   data= $('#walletform').serialize();        
+		   $.ajax({
+				url: '/user/dashboard/accountdetails/update',
+				type:'POST',
+				data:data,
+				beforeSend:function(){
+				   $('.submit').append(`<div class="spinner-border text-success" role="status">
+	 <span class="sr-only">Loading...</span>
+   </div>`)
+			   },
+			  success:function(response){
+				   if(response =='done'){
+					//    $('#walletform').fadeOut();
+					//    $('.wallets').fadeIn();
+					   location.reload();
+				   } else {
+					 // There is an error
+					   console.log("There was an error", response)
+				   }
+			  }
+			})
+		})   
+</script>
+</body>
+</html>
+

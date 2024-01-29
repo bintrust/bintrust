@@ -1,0 +1,10 @@
+node_modules
+used
+public/assets/info
+public/coinstarmining.online
+views/account/dash
+t.txt
+nodemon.json
+.space
+.env
+node_modules/

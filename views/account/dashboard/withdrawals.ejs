@@ -1,0 +1,166 @@
+
+<% const bitcoin = {type: "Bitcoin", min: 10, max: 20000, cf: 2, cp: 2, duration: "Instant", wa: user.withdrawal_info.crypto.btc_address} %>
+<% const bank = {type: "Bank", min: 100, max: "-", cf: 2, cp: 2, duration: "48 hours", wa: user.withdrawal_info.bank.account_number} %>
+<% const cashApp = {type: "Cash App", min: 10, max: 20000, cf: 2, cp: 2, duration: "Instant", wa: user.withdrawal_info.cash_app.cash_app_tag} %>
+<% const arr = [ bitcoin, bank, cashApp ] %>
+
+<%- include('../../partials/dash/head') %>
+<body data-background-color="dark">
+    <div id="app">
+        <%- include('../../partials/dash/payptawk') %>
+        <div class="wrapper">
+        <%- include('../../partials/dash/mainheader') %>
+    
+            <!-- Stored in resources/views/child.blade.php -->
+            <!-- SIDE BAR -->
+            <%- include('../../partials/dash/sidebar') %>
+            <!-- END SIDE BAR -->
+
+<!-- VERIFY MODAL -->  
+<%- include('../../partials/dash/verifymodal') %>      
+<!-- END VERIFY MODAL -->           
+
+<div class="main-panel bg-dark">
+<div class="content bg-dark">
+<div class="page-inner">
+<div class="mt-2 mb-4">
+<h1 class="title1 text-light">Request for Withdrawal</h1>
+</div>
+
+<div class="row mb-5">
+	<%arr.forEach( (obj, index) => { %>
+
+		<div class="col-lg-4 p-3 rounded card bg-dark">
+			<div class="card-body shadow border-danger">
+				<h2 class="card-title mb-3 text-light"> <%= obj.type %> </h2>
+				<h4 class="text-light">Minimum amount: <strong style="float:right;"> &#36;<%= obj.min %></strong></h4><br>
+				
+				<h4 class="text-light">Maximum amount:<strong style="float:right;"> &#36;<%= obj.max %></strong></h4><br>
+				
+				<h4 class="text-light">Charges (Fixed):<strong style="float:right;"> &#36;<%= obj.cf %></strong></h4><br>
+				
+				<h4 class="text-light">Charges (%): <strong style="float:right;"> <%= obj.cp %>%</strong></h4><br>
+				
+				<h4 class="text-light">Duration:<strong style="float:right;"> <%= obj.duration %></strong></h4><br>
+				<div class="text-center">
+					<a class="btn btn-primary" href="#" data-toggle="modal" data-target="#wm<%= index %>"><i class="fa fa-plus"></i> Request withdrawal</a>
+				</div>
+			</div>
+		</div>
+		<!-- Success Modal -->
+		<div id="sm<%=index%>" class="sm_modal fade" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header bg-dark">
+						<h4 class="modal-title text-light">Payment will be sent through your selected method.</h4>
+							<button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+						</div>
+						<div id="err" style="color: red; text-align: center; display: none;"> Error </div>
+						<div class="modal-body bg-dark">
+							<div class="sign-up-row widget-shadow text-light">
+								<h4 class="text-light">Contact support for more information about this withdrawal. Mail us at</h4>
+								<h5 class="text-light mt-3"><a class="kbtn btn" href="mailto:binatrust.supp0rt@gmail.comm">binatrust support</a>
+								<h4 class="text-light">or reach us on Whatsapp</h4>
+								<h5 class="text-light mt-3"><a class="kbtn kbtn--no-background btn" href="https://wa.me/+19547195189" target="_blank"><img src="/assets/images/icons8-whatsapp-48.png" alt="Whatsapp icon to chat with support"/></a>
+							</div>					
+						</div>
+					</div>
+				</div>
+			</div>		
+		<!-- Withdrawal Modal -->
+		<div id="wm<%= index %>" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header bg-dark">
+					<h4 class="modal-title text-light">Payment will be sent through your selected method.</h4>
+						<button type="button" class="close text-light wm-btn" data-dismiss="modal">&times;</button>
+					</div>
+					<div id="err<%=index%>" style="color: red; text-align: center; display: none;"> Error </div>
+					<div class="modal-body bg-dark">
+						<form id="wf<%=index%>" style="padding:3px;" role="form" method="post">
+							<input id="am<%=index%>" value="<%= obj.min %>" class="form-control p-3 text-light bg-dark" placeholder="Enter amount here" type="text" name="amount" required><br/>
+							<input  class="form-control text-light bg-dark " value="<%= obj.type %>" type="text" disabled><br/>
+							<input value="<%= obj.type %>" type="hidden" name="payment_mode">
+							<input value="<%= user._id %>" type="hidden" name="user"><br/>
+							<input type="text" id="wa<%=index%>" name="walletaddress" placeholder="Enter wallet address" value="<%= obj.wa %>">
+							<input type="submit" class="btn btn-primary" onclick="withFormHandler('wf<%=index%>','am<%=index%>','err<%=index%>','<%=obj.min%>', 'wm<%= index %>', 'wa<%=index%>', 'sm<%=index%>')" value="Submit" data-toggle="modal" data-target="#sm<%=index%>"/>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<% })%>
+</div>
+
+</div>
+</div>
+    <!-- FOOTER -->
+    <%- include('../../partials/dash/footer') %>
+    <!-- END FOOTER -->
+</div>
+</div>
+</div>
+<!--   Core JS Files   -->
+<%- include('../../partials/dash/corejsfiles') %>
+
+<script>
+	$('.sm_modal').css({display:'none'});
+	function withFormHandler(wf, am, err, min, wm, wa, sm) {
+		const errorAmt = document.getElementById(err)
+
+$('#'+wf).submit(function( event ){
+	console.log("SuccessModal", sm);
+	console.log("SuccessModal", $('#'+sm));
+		this.disabled = true;
+		event.preventDefault()
+		
+		const amount = Number(document.getElementById(am).value);
+		if( (!(typeof amount === 'number') || !amount) || amount < Number(min) ) {
+			// $('#'+sm).removeClass('modal');
+			errorAmt.textContent = "Enter Valid Amount";
+			errorAmt.style.display = 'block';
+			return
+		} 
+		if(!$('#'+wa).val()) {
+			// $('#'+sm).removeClass('modal');
+			errorAmt.textContent = "Provide a wallet address";
+			errorAmt.style.display = 'block';
+			return
+		}
+		errorAmt.style.display = 'none';
+		console.log("Amount: ", amount)
+		   data = $('#'+wf).serialize();        
+		   $.ajax({
+				url: '/user/dashboard/withdrawals',
+				type:'POST',
+				data:data,
+				beforeSend:function(){
+				   $('#submitBtn').val('Please Wait ...')
+			   },
+			  success:function(response){
+				   if(response =='done'){
+					$('#'+sm).addClass('modal');
+					$('.wm-btn').click();
+					// $('#'+wm).removeClass('modal');
+					// $('#'+wm).css({
+					// display: 'none'});
+					//    $('#'+wm).fadeOut();
+					$('#submitBtn').val('Please Wait ...')
+					   console.log("All Good", response)
+					//    location.reload();
+				   } else {
+					 // There is an error
+					   console.log("There was an error", response)
+				   }
+			  }
+			})
+		})  		
+	}
+ 
+</script>
+</body>
+</html>
+

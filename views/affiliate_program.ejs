@@ -1,0 +1,73 @@
+<%- include('partials/head') %>
+
+<body class="loading_it">
+    <%- include('partials/header') %>
+    <%- include ('partials/navigation') %>
+    <%- include ('partials/preloader') %>
+
+    <div class="banner-area center">
+        <div class="area">
+            <div class="bodycontainer2">
+                <h1 class="tlt text-white" style="margin: 20px 0;">AFFILIATE <span class="text-default">PROGRAM</span></h1>
+                <div class="banner-title">
+                    <span class="decor-equal"></span>
+                </div>
+                <div style="margin: 20px 0;">
+                    <a href="/">HOME</a> / AFFILIATE PROGRAM
+                </div>
+            </div>
+            <div id="particles-js"></div>
+        </div>
+    </div>
+    <div class="bodycontainer2 padding">
+        <br><br>
+        <div class="title_container">
+            <h4>Our Affiliate Program</h4>
+            <span class="decor_default"></span>
+        </div>
+        <p>The company's growth is difficult to imagine without the help of numerous customers and partners. Many of them have been cooperated with us before and know about our capabilities, they helped us in shaping of business strategy and bringing the first investment in trust management. Today, any of our clients can be our partner and even earn through affiliate link. After registration each user receives a unique affiliate link (which contains his username). You can use this link for registration of new investors. Just send this link to your friend via email. Once your friend clicks a link and signs up, he becomes your referral.</p>
+        <blockquote>Every deposit of your referral will bring you a reward in the amount of 7% and $2 for Referral Registration.</blockquote>
+        <p>Affiliate commission is accrued automatically after addition of deposit. You can use this amount at your discretion - to withdraw it or use it for new deposit. To become an affiliate and start earning money, you don't even need to have your own active deposit. However, we remind you that the best evidence of successful investing is always a personal experience.</p>
+    </div>
+    <br><br>
+    <a href="#" id="back-to-top" class="back-to-top fa fa-arrow-up show-back-to-top"></a>
+    <script>
+    /*--window Scroll functions--*/
+    $(window).on('scroll', function() {
+        /*--show and hide scroll to top --*/
+        var ScrollTop = $('#back-to-top');
+        if ($(window).scrollTop() > 500) {
+            ScrollTop.fadeIn(1000);
+        } else {
+            ScrollTop.fadeOut(1000);
+        }
+    });
+    </script>
+
+    <%- include('partials/footer') %>
+
+    <script src="js/particle.js"></script>
+    <script>
+    particlesJS("particles-js", {
+        "particles": { "number": { "value": 100, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } }
+        },
+        "retina_detect": true
+    });
+    </script>
+    <script>
+    (function(b, i, t, C, O, I, N) {
+        window.addEventListener('load', function() {
+            if (b.getElementById(C)) return;
+            I = b.createElement(i), N = b.getElementsByTagName(i)[0];
+            I.src = t;
+            I.id = C;
+            N.parentNode.insertBefore(I, N);
+        }, false)
+    })(document, 'script', 'widgets.bitcoin.com/widget.html', 'btcwdgt');
+    </script>
+</body>
+</html>

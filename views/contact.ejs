@@ -1,0 +1,119 @@
+<%- include('partials/head') %>
+
+<body class="loading_it">
+    <%- include('partials/header') %>
+    <%- include ('partials/navigation') %>
+    <%- include ('partials/preloader') %>
+
+    <div class="banner-area center">
+        <div class="area">
+            <div class="bodycontainer">
+                <h1 class="tlt text-white" style="margin: 20px 0;">Contact <span class="text-default">Us</span></h1>
+                <div class="banner-title">
+                    <span class="decor-equal"></span>
+                </div>
+                <div style="margin: 20px 0;">
+                    <a href="/">HOME</a> / CONTACT US
+                </div>
+            </div>
+            <div id="particles-js"></div>
+        </div>
+    </div>
+    <div class="bodycontainer">
+        <div class="row">
+            <div class="col-12 col-m-12 col-sm-12">
+                <div class="col-8 col-sm-12">
+                    <div class="title_container">
+                        <h4>Feel free to drop us a message.</h4>
+                        <span class="decor_default"></span>
+                    </div>
+                    <div class="alerter"></div>
+                    <script type="text/javascript" src="js/mail.js"></script>
+                    <form method="POST" action="#" id="contactform">
+                        <p>What can we help you with?</p>
+                        <div class="row">
+                            <div class="col-12" style="padding:5px 0">
+                                <select name="topic" style="width:100%" class="round">
+                                    <option value="Trading Question">Trading Question</option>
+                                    <option value="Finance Question">Finance Question</option>
+                                    <option value="Technical Question">Technical Question</option>
+                                </select>
+                            </div>
+                            <div class="col-6" style="padding:5px 0">
+                                <input type="text" name="name" placeholder="Name" required style="width:100%;" class="round" value="">
+                            </div>
+                            <div class="col-6" style="padding:5px 0">
+                                <input type="text" name="email" placeholder="Email" required style="width:100%" class="round" value="">
+                            </div>
+                            <div class="col-12" style="padding:5px 0">
+                                <textarea name="text" placeholder="Message" class="round" required style="width:100%; height: 120px"></textarea>
+                            </div>
+                            <div class="col-12" style="padding:5px 0">
+                                <button name="Submit" type="submit" id="sendform" class="btn default round">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 col-sm-12">
+                    <div class="darkgrey row">
+                        <div class="col-3 col-m-2 col-sm-3 center">
+                            <i class="fa fa-home fa-2x text-default"></i>
+                        </div>
+                        <div class="col-9 col-m-10 col-sm-9">
+                            <h6 style="line-height:30px !important">ADDRESS:</h6>
+                            <p>5 Preston Court, Burton Latimer, United Kingdom, NN15 5LR</p>
+                        </div>
+                        <div class="col-3 col-m-2 col-sm-3 center">
+                            <i class="fa fa-envelope fa-2x text-default"></i>
+                        </div>
+                        <div class="col-9 col-m-10 col-sm-9">
+                            <h6 style="line-height:30px !important">EMAIL ADDRESSE:</h6>
+                            <p><a class="btn" href="mailto:binatrustfx@gmail.com">binatrust support</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <a href="#" id="back-to-top" class="back-to-top fa fa-arrow-up show-back-to-top"></a>
+    <script>
+    /*--window Scroll functions--*/
+    $(window).on('scroll', function() {
+        /*--show and hide scroll to top --*/
+        var ScrollTop = $('#back-to-top');
+        if ($(window).scrollTop() > 500) {
+            ScrollTop.fadeIn(1000);
+        } else {
+            ScrollTop.fadeOut(1000);
+        }
+    });
+    </script>
+
+    <%- include('partials/footer') %>
+
+    <script src="js/particle.js"></script>
+    <script>
+    particlesJS("particles-js", {
+        "particles": { "number": { "value": 100, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } }
+        },
+        "retina_detect": true
+    });
+    </script>
+    <script>
+    (function(b, i, t, C, O, I, N) {
+        window.addEventListener('load', function() {
+            if (b.getElementById(C)) return;
+            I = b.createElement(i), N = b.getElementsByTagName(i)[0];
+            I.src = t;
+            I.id = C;
+            N.parentNode.insertBefore(I, N);
+        }, false)
+    })(document, 'script', 'widgets.bitcoin.com/widget.html', 'btcwdgt');
+    </script>
+</body>
+</html>

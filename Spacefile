@@ -1,0 +1,14 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: binatrustclient
+    src: ./
+    engine: nodejs16
+    primary: true
+    public: true
+    run: node app.js
+    presets:
+      env:
+        - name: MONGODB_URL
+          description: "Integrate my new Space App with my new Collection. Yes!!"
+          default: "mongodb+srv://bintrustfx:Levisco28@cluster0.xirifip.mongodb.net/binatrust_db?retryWrites=true&w=majority"
