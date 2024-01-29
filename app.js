@@ -15,7 +15,7 @@ const uri = process.env.MONGODB_URL;
 
 // Database connection
 const main = async () => {
-  await mongoose.connect('mongodb+srv://bintrustfx:Levisco28@cluster0.xirifip.mongodb.net/binatrust_db?retryWrites=true&w=majority', { useNewUrlParser: true });
+  await mongoose.connect(uri, { useNewUrlParser: true });
   schedule.scheduleJob({ minute: 1 }, () => {
     console.log("Scheduled Job", new Date());
   });
