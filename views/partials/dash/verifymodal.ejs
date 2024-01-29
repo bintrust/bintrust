@@ -1,0 +1,24 @@
+<!-- Verify Modal -->
+<div class="modal fade" id="verifyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+           <div class="modal-content">
+              <div class="modal-header bg-dark">
+                 <h5 class="modal-title text-light" style="text-align:center;">KYC verification - Upload documents below to get verified.</h5>
+                 <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body bg-dark">
+                 <form style="padding:3px;" role="form" method="post" action="https://binatrust.online/Account/dashboard/savevdocs"  enctype="multipart/form-data">
+                    <label class="text-light">Valid identity card. (e.g. Drivers licence, international passport or any government approved document).</label>
+                    <input type="file" class="form-control bg-dark text-light" name="id" required><br>
+                    <label class="text-light">Passport photogragh</label>
+                    <input type="file" class="form-control bg-dark text-light" name="passport" required><br>
+                    <input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+                    <input type="submit" class="btn btn-light" value="Submit documents">
+                 </form>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- /Verify Modal --> 

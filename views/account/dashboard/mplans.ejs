@@ -1,0 +1,362 @@
+<%- include('../../partials/dash/head') %>
+<body data-background-color="dark">
+    <div id="app">
+        <%- include('../../partials/dash/payptawk') %>
+        <div class="wrapper">
+        <%- include('../../partials/dash/mainheader') %>
+    
+            <!-- Stored in resources/views/child.blade.php -->
+            <!-- SIDE BAR -->
+            <%- include('../../partials/dash/sidebar') %>
+            <!-- END SIDE BAR -->
+
+<!-- VERIFY MODAL -->  
+<%- include('../../partials/dash/verifymodal') %>      
+<!-- END VERIFY MODAL -->   
+<div class="main-panel bg-dark">
+			<div class="content bg-dark">
+				<div class="page-inner">
+					<div class="mt-2 mb-4">
+						<h1 class="title1 text-light">Available packages</h1>
+					</div>
+							
+										<div class="row mb-5">
+												<div class="col-lg-4 p-4 card bg-dark shadow-lg">
+							<div class="pricing-table purple border bg-dark shadow-lg">
+								<!-- Table Head -->
+								<div class="pricing-label d-inline">Fixed Price</div>
+								<h2 class="text-light">STARTER PLAN</h2>
+								<!-- Price -->
+								<div class="price-tag">
+									<span class="symbol text-light">&#36;</span>
+									<span class="amount text-light">300 to $7500</span>
+								</div>
+								<!-- Features -->
+								<div class="pricing-features">
+									<div class="feature text-light">Minimum Possible Deposit:<span class="text-light">&#36;300</span></div>
+									<div class="feature text-light">Maximum Possible Deposit:<span  class="text-light">&#36;7500</span></div>
+									<div class="feature text-light">Daily return:<span class="text-light">1.5% daily return</span></div>
+									<div class="feature text-light"><span class="text-light">Withdraw 30% capital after 30 working days</span></div>
+								
+									<div class="feature text-light">investment Duration:<span class="text-light">One month</span></div>
+								</div> <br>
+								<!-- Button -->
+								<div class="">
+									<form style="padding:3px;" role="form" method="post" action="/dashboard/joinplan">
+										<h5 class="text-light">Amount to invest: (&#36;300 to $7500 default)</h5>
+										<input type="number" min="300" max="7500" name="iamount" placeholder="&#36;300 to $7500" class="form-control text-light bg-dark"> <br>
+										<input type="hidden" name="duration" value="One month">
+										<input type="hidden" name="id" value="23">
+										<input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+										<input type="submit" class="btn btn-block pricing-action btn-primary nav-pills" value="Join plan" style=" border-radius: 60px;">
+									<span data-toggle="modal"  data-target="#depositModal23">Click</span>
+									</form>
+								</div>
+							</div>
+							<!-- Deposit for a plan Modal -->
+							<div id="depositModal23" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header bg-dark">
+										<h4 class="modal-title" style="text-align:center;">Make a deposit of <strong>&#36;300 to $7500 to join this plan</strong></h4>
+											<button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+										</div>
+										<div class="modal-body bg-dark">
+											<form style="padding:3px;" role="form" method="post" action="/dashboard/deposit">
+												<input style="padding:5px;" class="form-control" value="300 to $7500" type="text" name="amount" required><br/>
+												<input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+												<input type="hidden" name="pay_type" value="plandeposit">
+												<input type="hidden" name="plan_id" value="23">
+												<input type="submit" class="btn btn-default" value="Continue">
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /deposit for a plan Modal -->
+						</div>
+							<div class="col-lg-4 p-4 card bg-dark shadow-lg">
+							<div class="pricing-table purple border bg-dark shadow-lg">
+								<!-- Table Head -->
+								<div class="pricing-label d-inline">Fixed Price</div>
+								<h2 class="text-light">BUSINESS PACKAGE</h2>
+								<!-- Price -->
+								<div class="price-tag">
+									<span class="symbol text-light">&#36;</span>
+									<span class="amount text-light">7500 to $20000</span>
+								</div>
+								<!-- Features -->
+								<div class="pricing-features">
+									<div class="feature text-light">Minimum Possible Deposit:<span class="text-light">&#36;7500</span></div>
+									<div class="feature text-light">Maximum Possible Deposit:<span  class="text-light">&#36;20,000</span></div>
+									<div class="feature text-light">Daily return:<span class="text-light">3.5% daily return</span></div>
+									<div class="feature text-light"><span class="text-light">Withdraw 30% capital after 30 working days</span></div>
+								
+									<div class="feature text-light">investment Duration:<span class="text-light">One month</span></div>
+								</div> <br>
+								<!-- Button -->
+								<div class="">
+									<form style="padding:3px;" role="form" method="post" action="/dashboard/joinplan">
+										<h5 class="text-light">Amount to invest: (&#36;7500 to $20000 default)</h5>
+										<input type="number" min="7500" max="20,000" name="iamount" placeholder="&#36;7500 to $20000" class="form-control text-light bg-dark"> <br>
+										<input type="hidden" name="duration" value="One month">
+										<input type="hidden" name="id" value="24">
+										<input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+										<input type="submit" class="btn btn-block pricing-action btn-primary nav-pills" value="Join plan" style=" border-radius: 60px;">
+									</form>
+								</div>
+								
+							</div>
+							<!-- Deposit for a plan Modal -->
+							<div id="depositModal24" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+							<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header bg-dark">
+										<h4 class="modal-title" style="text-align:center;">Make a deposit of <strong>&#36;7500 to $20000 to join this plan</strong></h4>
+											<button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+										</div>
+										<div class="modal-body bg-dark">
+											<form style="padding:3px;" role="form" method="post" action="/dashboard/deposit">
+												<input style="padding:5px;" class="form-control" value="7500 to $20000" type="text" name="amount" required><br/>
+												
+												<input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+												<input type="hidden" name="pay_type" value="plandeposit">
+												<input type="hidden" name="plan_id" value="24">
+												<input type="submit" class="btn btn-default" value="Continue">
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /deposit for a plan Modal -->
+						</div>
+												<div class="col-lg-4 p-4 card bg-dark shadow-lg">
+							<div class="pricing-table purple border bg-dark shadow-lg">
+								<!-- Table Head -->
+								<div class="pricing-label d-inline">Fixed Price</div>
+								<h2 class="text-light">PARTNERSHIP PLAN</h2>
+								<!-- Price -->
+								<div class="price-tag">
+									<span class="symbol text-light">&#36;</span>
+									<span class="amount text-light">20000 to $100000</span>
+								</div>
+								<!-- Features -->
+								<div class="pricing-features">
+									<div class="feature text-light">Minimum Possible Deposit:<span class="text-light">&#36;20000</span></div>
+									<div class="feature text-light">Maximum Possible Deposit:<span  class="text-light">&#36;100000</span></div>
+									<div class="feature text-light">Daily return:<span class="text-light">5% daily return</span></div>
+									<div class="feature text-light"><span class="text-light">Withdraw 30% capital after 30 working days</span></div>
+								
+									<div class="feature text-light">investment Duration:<span class="text-light">One month</span></div>
+								</div> <br>
+								<!-- Button -->
+								<div class="">
+									<form style="padding:3px;" role="form" method="post" action="/dashboard/joinplan">
+										<h5 class="text-light">Amount to invest: (&#36;20000 to $100000 default)</h5>
+										<input type="number" min="20000" max="100000" name="iamount" placeholder="&#36;20000 to $100000" class="form-control text-light bg-dark"> <br>
+										<input type="hidden" name="duration" value="One month">
+										<input type="hidden" name="id" value="25">
+										<input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+										<input type="submit" class="btn btn-block pricing-action btn-primary nav-pills" value="Join plan" style=" border-radius: 60px;">
+									</form>
+								</div>
+								
+							</div>
+							<!-- Deposit for a plan Modal -->
+							<div id="depositModal25" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+							<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header bg-dark">
+										<h4 class="modal-title" style="text-align:center;">Make a deposit of <strong>&#36;20000 to $100000 to join this plan</strong></h4>
+											<button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+										</div>
+										<div class="modal-body bg-dark">
+											<form style="padding:3px;" role="form" method="post" action="/dashboard/deposit">
+												<input style="padding:5px;" class="form-control" value="20000 to $100000" type="text" name="amount" required><br/>
+												
+												<input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+												<input type="hidden" name="pay_type" value="plandeposit">
+												<input type="hidden" name="plan_id" value="25">
+												<input type="submit" class="btn btn-default" value="Continue">
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /deposit for a plan Modal -->
+						</div>
+											</div>
+				</div>	
+			</div>
+				
+		<!-- Deposit Modal -->
+			<div id="depositModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+  
+				  <!-- Modal content-->
+				  <div class="modal-content">
+					<div class="modal-header bg-dark">
+					  <h4 class="modal-title text-light">Make new deposit</h4>
+					  <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body bg-dark">
+						  <form style="padding:3px;" role="form" method="post" action="/dashboard/deposit">
+								 <input style="padding:5px;" class="form-control text-light bg-dark" placeholder="Enter amount here" type="text" name="amount" required><br/>
+								 <input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+								 <input type="submit" class="btn btn-light" value="Continue">
+						 </form>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  <!-- /deposit Modal -->
+			<!-- Delete Subscription Modal -->
+			<div id="delsubmodal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+				  <!-- Modal content-->
+				  <div class="modal-content">
+					<div class="modal-header bg-dark">
+					  <h4 class="modal-title text-light">Delete MT4 Details</h4>
+					  <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body bg-dark p-3">
+						<h5 class="text-light">Your subscription has already started, send an Email to <a  class="btn" href="mailto:binatrustfx@gmail.com">binatrust support</a> to have your MT4 Details Deleted.</h5>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  <!-- /deposit Modal -->
+					  <!-- Withdrawal Modal -->
+		  <div id="withdrawalModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+			  <!-- Modal content-->
+			  <div class="modal-content">
+				<div class="modal-header bg-dark">
+				  <h4 class="modal-title text-light">Payment will be sent to your recieving address.</h4>
+				  <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body bg-dark">
+					  <form style="padding:3px;" role="form" method="post" action="/dashboard/withdrawal">
+							 <input style="padding:5px;" class="form-control bg-dark text-light" placeholder="Enter amount here" type="text" name="amount" required><br/>
+							 
+							 <input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+							 <input type="submit" class="btn btn-light" value="Submit">
+					 </form>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <!-- /Withdrawals Modal -->
+		<!-- Subscription Payment modal -->
+			<div class="modal fade" id="SubpayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header bg-dark">
+					
+						<h4 class="modal-title text-light">Subscription Payment</h4>
+						<button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+			      </div>
+
+				<form role="form" method="post" action="/dashboard/deposit" id="priceform">
+				<div class="modal-body bg-dark">
+					
+					<h5 class="text-light">Duration</h5>
+						<select class="form-control bg-dark text-light" onchange="calcAmount(this)" name="duration" class="duration" id="duratn">
+							<option value="default">Select duration</option>
+							<option>Monthly</option>
+							<option>Quaterly</option>
+							<option>Yearly</option>
+						</select><br>
+						<h5 class="text-light">Amount to Pay</h5>
+						<input class="form-control subamount bg-dark text-light" type="text" id="amount" disabled><br/>
+						<input id="amountpay" type="hidden" name="amount">
+						<input type="hidden" value="Subscription Trading" name="pay_type">
+						<input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+				</div>
+				<div class="modal-footer bg-dark">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Pay Now</button>
+				</div>
+				</div>
+				</form>
+
+				<script type="text/javascript">
+				function calcAmount(sub) {
+					if(sub.value=="Quaterly"){
+						var amount = document.getElementById('amount');
+						var amountpay = document.getElementById('amountpay');
+						amount.value = '&#36;20';
+						amountpay.value = '20';
+					}if(sub.value=="Yearly"){
+						var amount = document.getElementById('amount');
+						var amountpay = document.getElementById('amountpay');
+						amount.value = '&#36;30';
+						amountpay.value = '30';
+					}if(sub.value=="Monthly"){
+						var amount = document.getElementById('amount');
+						var amountpay = document.getElementById('amountpay');
+						amount.value = '&#36;10';
+						amountpay.value = '10';
+					}
+				}
+				</script>
+			</div>
+			</div>
+			<!-- Subscription Payment modal -->
+			
+			
+		<!-- Submit MT4 MODAL modal -->
+			<div id="submitmt4modal" class="modal fade" role="dialog">
+			  <div class="modal-dialog">
+			    <!-- Modal content-->
+			    <div class="modal-content">
+					<div class="modal-header bg-dark">
+						<h4 class="modal-title text-light">Submit your MT4 Login Details</h4>
+						<button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+			      </div>
+			     	<div class="modal-body bg-dark">
+              			<form role="form" method="post" action="/dashboard/savemt4details">
+							  
+							  <h5 class="text-light ">MT4 ID*:</h5>
+							<input class="form-control bg-dark text-light"  type="text" name="userid" required><br/>
+							<h5 class="text-light ">MT4 Password*:</h5>
+							<input style="padding:5px;" class="form-control bg-dark text-light"  type="text" name="pswrd" required><br/>
+							<h5 class="text-light ">Account Type:</h5>
+							<input  class="form-control bg-dark text-light" Placeholder="E.g. Standard" type="text" name="acntype" required><br/>	
+							<h5 class="text-light ">Currency*:</h5>
+							<input  class="form-control bg-dark text-light" Placeholder="E.g. USD" type="text" name="currency" required><br/>
+							<h5 class="text-light ">Leverage*:</h5>
+							<input  class="form-control bg-dark text-light" Placeholder="E.g. 1:500"  type="text" name="leverage" required><br/>
+							<h5 class="text-light ">Server*:</h5>
+							<input  class="form-control bg-dark text-light" Placeholder="E.g. HantecGlobal-live"  type="text" name="server" required><br/>
+							<h5 class="text-light ">Subscription Duration:</h5>
+							<select class="form-control bg-dark text-light" name="duration" class="duration">
+								<option value="default">Select duration</option>
+								<option>Monthly</option>
+								<option>Quaterly</option>
+								<option>Yearly</option>
+							</select><br>
+
+					   		<input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+					   		<input type="submit" class="btn btn-primary" value="Submit">
+					   </form>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /plans Modal -->
+                <!-- FOOTER -->
+                <%- include('../../partials/dash/footer') %>
+                <!-- END FOOTER -->
+            </div>
+        </div>
+    </div>
+<!--   Core JS Files   -->
+<%- include('../../partials/dash/corejsfiles') %>
+</body>
+
+</html>

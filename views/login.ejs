@@ -1,0 +1,71 @@
+<%- include('partials/formhead') %>
+
+<body class="d-flex flex-column h-100 auth-page">
+    <!-- ======= Loginup Section ======= -->
+    <section class="auth">
+        <div class="container">
+            <div class="row justify-content-center user-auth">
+                <div class="col-12 col-md-6 col-lg-6 col-sm-10 col-xl-6 ">
+                    <div class="text-center mb-4">
+                        <h3><a href="/" class="auth__logo img-fluid">Binatrust</a></h3>
+                    </div>
+                    <div class="card ">
+                        <h1 class="text-center mt-3"> User Login</h1>
+                        <form method="POST" action="/user/login" id="logform" class="mt-5 card__form">
+                            <input type="hidden" name="logform" value="uDF2YsHBvUoett4eWe09VXWCmgBJzgIaIUHX7MkC">
+                            <div class="form-group ">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" name="email" value="" id="email" placeholder="name@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required>
+                            </div>
+                            <div class="resp"></div>
+                            <div class="form-group">
+                                <button class="btn btn-primary mt-4" type="submit">Login</button>
+                            </div>
+                            <div class="text-center mb-3">
+                                <small class=" text-center mb-2">Forget your Password <a href="/user/password/reset" class="link ml-1">Reset.</a> </small>
+                                <small class=" text-center">Dont have an Account yet? <a href="/user/register" class="link ml-1">Sign up.</a> </small>
+                            </div>
+                            <div class="text-center">
+                                <hr>
+                                <small class=" text-center">&copy; Copyright 2021 &nbsp; binatrust &nbsp; All Rights Reserved.</small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    $('#logform').submit(function() {
+        event.preventDefault();
+        var data = $('#logform').serialize();
+        $.ajax({
+            url: "/user/login",
+            type: "POST",
+            data: data,
+            beforeSend: function() {
+                $('.resp').html(`<div class="spinner-border text-success" role="status">
+  <span class="sr-only">Loading...</span>
+</div>`)
+            },
+            success: function(resp) {
+                console.log("SUCCESS", resp)
+                if (resp == "login") {
+                    window.location.replace("/user/dashboard");
+                } else {
+                    $('.resp').html(resp);
+                }
+            },
+            error: function(resp) {
+                console.log("RESPONSE", resp)
+                $('.resp').html(`<div class="alert alert-danger" role="status">${resp.responseJSON.error}</div>`)
+            }
+        })
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<% const email = user.email %>
+<% const fname = user.fname %>
+<% const lname = user.lname %>
+<% const phone = user.phone %>
+
+<%- include('../../partials/dash/head') %>
+<body data-background-color="dark">
+    <div id="app">
+        <%- include('../../partials/dash/payptawk') %>
+        <div class="wrapper">
+        <%- include('../../partials/dash/mainheader') %>
+    
+            <!-- Stored in resources/views/child.blade.php -->
+            <!-- SIDE BAR -->
+            <%- include('../../partials/dash/sidebar') %>
+            <!-- END SIDE BAR -->
+
+<!-- VERIFY MODAL -->  
+<%- include('../../partials/dash/verifymodal') %>      
+<!-- END VERIFY MODAL -->   
+<div class="main-panel bg-dark">
+			<div class="content bg-dark">
+				<div class="page-inner">
+					<div class="mt-2 mb-4">
+						<h1 class="title1 text-light">Your Profile</h1>
+					</div>
+							
+										<div class="row profile">
+						<div class="col-lg-3 col-sm-12 bg-dark p-3">
+							<div class="profile-sidebar card bg-dark shadow rounded pb-5 pt-5">
+                              
+                                <!-- SIDEBAR USER TITLE -->
+                                <div class="profile-usertitle">
+                                  <div class="profile-usertitle-name">
+                                    <%= fname %> <%= lname %>
+                                  </div>
+                                  <div class="profile-usertitle-job">
+                                    binatrust User
+                                  </div>
+                                </div>
+                                <!-- END SIDEBAR USER TITLE -->
+                                
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-9 p-2">
+                            <div class="card p-5 shadow-lg bg-dark">
+                                <h2> <span class="fa fa-user"></span> &nbsp; <%= fname %> <%= lname %> </h2>
+                              
+                                <h5> <span class="fa fa-envelope"></span> &nbsp; <%= email %>  </h5>
+                                <h5> <span class="fa fa-mobile"></span> &nbsp; <%= phone %>  </h5>
+                            
+                               
+                                <form action="javascript:void(0)" method="post" id="styleform" class="form-inline">
+                                    <div class="form-group">
+                                        <h5 class="text-light">Dashboard Style:</h5> &nbsp; &nbsp;
+                                        <label class="style_switch">
+                                            <input name="style" id="style" type="checkbox" value="true" class="modes">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div> 
+                                                                        <script>document.getElementById("style").checked= true;</script>
+                                                                        <input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+                                </form>
+                                <div>
+                                    <input type="submit" data-toggle="modal" data-target="#edit" value="Update Info" class="btn btn-primary">
+                                </div>
+
+                                <div id="edit" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                        <div class="modal-header .modal-dialog-centered bg-dark">
+                                            Edit my Profile
+                                            <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body bg-dark">
+                                            <form role="form" method="post" action="/user/dashboard/profile/update">
+                                            <!-- <input type="hidden" name="user_id" value="1606"> -->
+                                                
+                                                <h5 class="text-light">Firstname</h5>
+                                            <input type="text" name="firstname" value="<%= user.fname %>" class="form-control bg-dark text-light"> <br>
+                                                <h5 class="text-light">Surname</h5>
+                                                <input type="text" name="surname" value="<%= user.lname %>" class="form-control bg-dark text-light"> <br>
+                                            
+                                           
+                                                <h5 class="text-light">Phone Number</h5>
+                                                <input type="text" name="phone"  class="form-control bg-dark text-light" value="<%= user.phone %>"> <br>
+                                                <h5 class="text-light">Address</h5>
+                                                <textarea class="form-control bg-dark text-light" placeholder="Full Address" name="address" row="3" value=""></textarea><br/>
+                                                <input type="hidden" name="user_id" value="<%= user._id %>">
+                                                <input type="hidden" name="_token" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A">
+                                                <input type="submit" class="btn btn-primary" value="Update">
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <script type="text/javascript">
+                                            $("#styleform").on('change',function(){
+                                            $.ajax({
+                                                url: "dashboard/changetheme",
+                                                type: 'POST',
+                                                data:$("#styleform").serialize(),
+                                                success: function (data) {
+                                                    location.reload(true);
+                                                },
+                                                error: function (data) {
+                                                    console.log('Something went wrong');
+                                                },
+
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+				</div>	
+			</div>
+            <!-- FOOTER -->
+            <%- include('../../partials/dash/footer') %>
+            <!-- END FOOTER -->
+            </div>
+        </div>
+    </div>
+
+<!--   Core JS Files   -->
+<%- include('../../partials/dash/corejsfiles') %>
+</body>
+
+<!-- Mirrored from binatrust.online/Account/dashboard/profile.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 31 Mar 2022 12:41:35 GMT -->
+</html>
+

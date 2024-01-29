@@ -1,0 +1,4 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+coinstarmining.online	TRUE	/	FALSE	1999999999	PHPSESSID	4f8e018358420b6a8d840e101ebba252
+

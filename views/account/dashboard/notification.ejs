@@ -1,0 +1,54 @@
+
+<%- include('../../partials/dash/head') %>
+<body data-background-color="dark">
+    <div id="app">
+        <%- include('../../partials/dash/payptawk') %>
+        <div class="wrapper">
+        <%- include('../../partials/dash/mainheader') %>
+    
+            <!-- Stored in resources/views/child.blade.php -->
+            <!-- SIDE BAR -->
+            <%- include('../../partials/dash/sidebar') %>
+            <!-- END SIDE BAR -->
+
+<!-- VERIFY MODAL -->  
+<%- include('../../partials/dash/verifymodal') %>      
+<!-- END VERIFY MODAL -->        
+        <div class="main-panel bg-dark">
+			<div class="content bg-dark">
+				<div class="page-inner">
+					<div class="mt-2 mb-4">
+					<h1 class="title1 text-light">Notification</h1>
+					</div>
+							
+										<div class="row mb-5">
+						<div class="col card bg-dark shadow-lg">
+							<div class="bs-example widget-shadow table-responsive" data-example-id="hoverable-table"> 
+								<table class="table table-hover  text-light"> 
+									<thead> 
+										<tr> 
+											<th>Message</th>
+											<th>Recieve Date</th>
+											<th>Option</th>
+										</tr> 
+									</thead> 
+									<tbody> 
+																			</tbody> 
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+                <!-- FOOTER -->
+                <%- include('../../partials/dash/footer') %>
+                <!-- END FOOTER -->
+            </div>
+        </div>
+    </div>
+<!--   Core JS Files   -->
+<%- include('../../partials/dash/corejsfiles') %>	 
+</body>
+</html>
+
