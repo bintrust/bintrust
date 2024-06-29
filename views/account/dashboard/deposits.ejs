@@ -83,7 +83,7 @@
 										<option>Bitcoin</option>
 										<option>Ethereum</option>
 										<option>USDT</option>
-										<option>BNB</option>
+										<!-- <option>BNB</option> -->
                                     </select><br>
 								 <input type="hidden" name="user" value="<%= user._id %>">
 								 <!-- <input type="hidden" name="deposit" value="uVfTiF4siYbSic8FKD2VYmWG6NbepdVao1ZCDC8A"> -->
@@ -128,17 +128,7 @@
 											<i class="fas fa-copy fa-2x" onclick="copyusdt()"></i>
 											</div><br/>										
 										</div>
-										<div id="bnbwallet_ctn">
-												<div style="display:flex; align-items: center; flex-direction:column;">
-													<strong>Scan Barcode</strong>
-													<img src="<%= bnb.image %>" alt="bnb barcode" style="width:100px;margin-bottom:16px;">
-												</div>
-												<div style="display:flex">
-												<input style="padding:5px; width:100%" class=""  type="text" name="bnbereum" id="bnbwallet" 
-													value="<%= bnb.address %>" readonly>&nbsp; &nbsp; 
-												<i class="fas fa-copy fa-2x" onclick="copybnb()"></i>
-												</div><br/>										
-											</div>
+										
 											<!-- <a href="deposits.html"  class="btn btn-primary">Done</a> -->
 											<input type="submit" class="btn btn-light submit" value="Done">
 											<button id="backBtn" class="btn btn-dark">Back</button>
@@ -181,7 +171,7 @@
 											payoption.value === 'Ethereum' ? ethwallet.style.display = 'block' : ethwallet.style.display = 'none'
 											payoption.value === 'Bitcoin' ? btcwallet.style.display = 'block' : btcwallet.style.display = 'none'
 											payoption.value === 'USDT' ? usdtwallet.style.display = 'block' : usdtwallet.style.display = 'none'
-											payoption.value === 'BNB' ? bnbwallet.style.display = 'block' : bnbwallet.style.display = 'none'
+											// payoption.value === 'BNB' ? bnbwallet.style.display = 'block' : bnbwallet.style.display = 'none'
 											wallets.style.display = 'block'
 
 										})

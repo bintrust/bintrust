@@ -184,42 +184,32 @@ const main = async () => {
   app.get("/user/dashboard/deposits", loginRequired, (req, res) => {
     const btc = [
       {
-        address: "15dapm14vUE2bVizMJjBCdnyZ1HwiDmbvP",
-        image: "/assets/images/barcode/btc-1.jpeg",
+        address: "14cWp4P3zLeBSY2N3897z4ve9Un7mqGMSB",
+        image: "/assets/images/barcode/btc_1.jpg",
       },
       {
-        address: "1J2aybcX7nhyh4PpiU1kjQnKNYdHWMxQ93",
-        image: "/assets/images/barcode/btc-2.jpeg",
+        address: "1MXeSnmxF37mWFahoFCVpLvByrdUF6YLnB",
+        image: "/assets/images/barcode/btc_2.jpg",
       },
     ];
     const eth = [
       {
-        address: "0x5be6def618265916e2c68f00ba783a49d82f7c08",
-        image: "/assets/images/barcode/eth-1.jpeg",
+        address: "0x5eb4f8637225a814fb674978ee56e68314c7083",
+        image: "/assets/images/barcode/eth_1.jpg",
       },
       {
-        address: "1J2aybcX7nhyh4PpiU1kjQnKNYdHWMxQ93",
-        image: "/assets/images/barcode/eth-2.jpeg",
+        address: "Oxb93c2e16d9908f15e123fc29b2841508bde75b60",
+        image: "/assets/images/barcode/eth_2.jpg",
       },
     ];
     const usdt = [
       {
-        address: "TKeGqybKEFDF8V6PvzmjAF9i6xAiH5ANbB",
-        image: "/assets/images/barcode/usdt-1.jpeg",
+        address: "TEFosiUXYQXRS2ACYZAe1F5gVV8NUSo3cQ",
+        image: "/assets/images/barcode/usdt_1.jpg",
       },
       {
-        address: "0x2fee2f3decbe86ffeb1415327428f31476895b8b",
-        image: "/assets/images/barcode/usdt-2.jpeg",
-      },
-    ];
-    const bnb = [
-      {
-        address: "0x5be6def618265916e2c68f00ba783a49d82f7c08",
-        image: "/assets/images/barcode/bnb-1.jpeg",
-      },
-      {
-        address: "0x2fee2f3decbe86ffeb1415327428f31476895b8b",
-        image: "/assets/images/barcode/bnb-2.jpeg",
+        address: "TYvcCpsNTtInztX4VyEXZPRd4WUTBGjncx",
+        image: "/assets/images/barcode/usdt_2.jpg",
       },
     ];
 
@@ -228,7 +218,6 @@ const main = async () => {
       btc: btc[r],
       eth: eth[r],
       usdt: usdt[r],
-      bnb: bnb[r],
     });
   });
 
