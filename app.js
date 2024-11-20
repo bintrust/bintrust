@@ -207,10 +207,10 @@ const main = async () => {
       },
     ];
     const usdt = [
-      {
-        address: "TEFosiUXYQXRS2ACYZAe1F5gVV8NUSo3cQ",
-        image: "/assets/images/barcode/usdt_1.jpg",
-      },
+      // {
+      //   address: "TEFosiUXYQXRS2ACYZAe1F5gVV8NUSo3cQ",
+      //   image: "/assets/images/barcode/usdt_1.jpg",
+      // },
       {
         address: "TYvcCpsNTtJnztX4VyEXzPRd4WUTBGjncx",
         image: "/assets/images/barcode/usdt_2.jpg",
